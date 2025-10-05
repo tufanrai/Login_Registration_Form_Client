@@ -19,14 +19,14 @@ const LoginCard = () => {
         mutationKey: ["AccessUser"],
         onSuccess: (data) => {
             sessionStorage.setItem('data', data.data.full_name);
-            toast.success(data.data.message)
+            toast.success('loged in successfuly')
             setTimeout(() => {
                 reset()
                 router.replace('/')
             }, 1000)
         },
         onError: (err) => {
-            toast.error(err.message)
+            toast.error(err.name)
             console.log(err);
             reset();
         }
