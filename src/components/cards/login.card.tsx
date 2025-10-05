@@ -19,10 +19,14 @@ const LoginCard = () => {
         mutationKey: ["AccessUser"],
         onSuccess: (data) => {
             sessionStorage.setItem('data', data.data.full_name);
-            setTimeout(() => {reset()}, 1000)
-            router.replace('/')
+            toast.success(data.data.message)
+            setTimeout(() => {
+                reset()
+                router.replace('/')
+            }, 1000)
         },
         onError: (err) => {
+            toast.error(err.message)
             console.log(err);
             reset();
         }
@@ -34,7 +38,6 @@ const LoginCard = () => {
 
     const displayData = (data: ILogin) => {
         mutate(data)
-        toast.success('data successfuly received')
     }
   return (
     <div className='max-w-100  w-full border rounded-lg px-4 md:px-8 py-2 md:py-4 backdrop-blur-sm shadow-xl/30 shadow-white'>

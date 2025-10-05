@@ -9,6 +9,7 @@ import { IRegister } from '../interface/formInterface';
 import { useMutation } from '@tanstack/react-query';
 import { RegisterNewUser } from '@/app/api/form.api';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 const RegisterCard = () => {
     const [showPassword, setShow] = useState(false)
@@ -17,12 +18,14 @@ const router = useRouter();
         mutationFn: RegisterNewUser,
         mutationKey: ['RegisterNewUsere'],
         onSuccess: (data) => {
+            toast.success(data.data.message)
             setTimeout(() => {
                 reset();
+                router.replace('/auth/login');
             }, 1000);
-            router.replace('/auth/login');
         },
         onError: (err) => {
+            toast.error(err.message)
             console.log(err);
             reset();
         }
