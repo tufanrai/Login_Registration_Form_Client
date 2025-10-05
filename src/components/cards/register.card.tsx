@@ -100,7 +100,7 @@ const router = useRouter();
                 ): ''}
             </div>
             <div className='w-full flex flex-col items-start justify-center mt-4'>
-                <button className='w-full border rounded-md cursor-pointer py-2 font-medium text-lg ease duration-300 hover:bg-white hover:text-stone-600' type='submit'>Login</button>
+                <button className='w-full border rounded-md cursor-pointer py-2 font-medium text-lg ease duration-300 hover:bg-white hover:text-stone-600' type='submit'>Register</button>
             </div>
         </form>
         <hr className='my-6' />
