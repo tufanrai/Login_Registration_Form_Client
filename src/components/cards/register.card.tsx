@@ -18,7 +18,7 @@ const router = useRouter();
         mutationFn: RegisterNewUser,
         mutationKey: ['RegisterNewUsere'],
         onSuccess: (data) => {
-            toast.success(data.data.message)
+            toast.success('successfuly registered')
             setTimeout(() => {
                 reset();
                 router.replace('/auth/login');
